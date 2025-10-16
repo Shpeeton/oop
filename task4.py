@@ -45,7 +45,7 @@ class Student:
 
     def __eq__(self, other):
         if not isinstance(other, Student):
-            return "Разные типы для сравнения"
+            return NotImplemented
         return self.average_grade() == other.average_grade()
 
 
@@ -81,7 +81,7 @@ class Lecturer(Mentor):
 
     def __eq__(self, other):
         if not isinstance(other, Lecturer):
-            return "Разные типы для сравнения"
+            return NotImplemented
         return self.average_grade() == other.average_grade()
 
 

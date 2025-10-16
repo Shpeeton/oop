@@ -45,8 +45,18 @@ class Student:
 
     def __eq__(self, other):
         if not isinstance(other, Student):
-            return "Разные типы для сравнения"
+            return NotImplemented
         return self.average_grade() == other.average_grade()
+
+    def __lt__(self, other):
+        if not isinstance(other, Student):
+            return NotImplemented
+        return self.average_grade() < other.average_grade()
+
+    def __gt__(self, other):
+        if not isinstance(other, Student):
+            return NotImplemented
+        return self.average_grade() > other.average_grade()
 
 
 class Mentor:
@@ -81,8 +91,18 @@ class Lecturer(Mentor):
 
     def __eq__(self, other):
         if not isinstance(other, Lecturer):
-            return "Разные типы для сравнения"
+            return NotImplemented
         return self.average_grade() == other.average_grade()
+
+    def __lt__(self, other):
+        if not isinstance(other, Lecturer):
+            return NotImplemented
+        return self.average_grade() < other.average_grade()
+
+    def __gt__(self, other):
+        if not isinstance(other, Lecturer):
+            return NotImplemented
+        return self.average_grade() > other.average_grade()
 
 
 class Reviewer(Mentor):
@@ -128,3 +148,9 @@ print(student2)
 
 print(lecturer == lecturer2)  # False
 print(student == student2)  # False
+
+print(f"Лектор {lecturer.name} < Лектор {lecturer2.name}: {lecturer < lecturer2}")  # True
+print(f"Лектор {lecturer.name} > Лектор {lecturer2.name}: {lecturer > lecturer2}")  # False
+
+print(f"Студент {student.name} < Студент {student2.name}: {student < student2}")  # True
+print(f"Студент {student.name} > Студент {student2.name}: {student > student2}")  # False
