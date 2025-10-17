@@ -45,21 +45,21 @@ class Reviewer(Mentor):
         super().__init__(name, surname)
         self.courses_attached = []
 
-        def rate_hw(self, student, course, grade):
-            if not isinstance(student, Student):
-                return "Ошибка"
+    def rate_hw(self, student, course, grade):
+        if not isinstance(student, Student):
+            return "Ошибка"
 
-            if course not in self.courses_attached:
-                return "Ошибка"
+        if course not in self.courses_attached:
+            return "Ошибка"
 
-            if course not in student.courses_in_progress:
-                return "Ошибка"
+        if course not in student.courses_in_progress:
+            return "Ошибка"
 
-            if grade < 0 or grade > 10:
-                return "Ошибка"
+        if grade < 0 or grade > 10:
+            return "Ошибка"
 
-            if course not in student.grades:
-                student.grades[course] = []
+        if course not in student.grades:
+            student.grades[course] = []
             student.grades[course].append(grade)
             return None
 
